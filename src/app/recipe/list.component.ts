@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
-import { AngularFire, FirebaseListObservable, AuthProviders, AuthMethods } from 'angularfire2'
-
-// import { NewComponent } from './recipe/new.component'
-// import { ListComponent } from './recipe/list.component'
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable, AuthProviders, AuthMethods } from 'angularfire2'
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'list-recipes',
+  templateUrl: './list.component.html'
 })
-export class AppComponent {
+
+export class ListComponent {
 
   recipes: FirebaseListObservable<any[]>;
   af: AngularFire;

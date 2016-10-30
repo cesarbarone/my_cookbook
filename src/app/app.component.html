@@ -1,8 +1,2 @@
-<h1>
-  <button (click)="listAllRecipes()">List All Recipes</button>
-  <ul>
-    <li *ngFor="let recipe of recipes | async">
-      {{recipe.name}}
-    </li>
-  </ul>
-</h1>
+<new-recipe></new-recipe>
+<list-recipes>Loading...</list-recipes>
