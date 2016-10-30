@@ -1,5 +1,16 @@
-<h1>Nova Receita</h1>
-<div>
-  <input [(ngModel)]="recipe.name" placeholder="Nome da receita" />
-  <button type="button" (click)="createRecipe()">Criar Receita</button>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h3>Nova Receita</h3>
+    <form>
+      <div class="form-group">
+        <label for="recipe-name">Nome da receita</label>
+        <input [(ngModel)]="recipe.name" name="recipe-name" placeholder="Nome da receita" class="form-control input-lg" />
+      </div>
+      <div class="form-group">
+        <label for="recipe-method">Modo de preparo</label>
+        <textarea class="form-control" name="recipe-method" placeholder="" [(ngModel)]="recipe.method" ></textarea>
+      </div>
+      <button type="button" class="btn btn-info" (click)="createRecipe()">Criar Receita</button>
+    </form>
+  </div>
 </div>
