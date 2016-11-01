@@ -7,6 +7,23 @@
         <input [(ngModel)]="recipe.name" name="recipe-name" placeholder="Nome da receita" class="form-control input-lg" />
       </div>
       <div class="form-group">
+        <label>Ingredientes</label>
+        <ul>
+          <li *ngFor="let ingredient of recipe.ingredients">{{ingredient.quantity}} {{ingredient.name}}</li>
+        </ul>
+        <div class="row">
+          <div class="col-xs-7">
+            <input class="form-control" type="text" [(ngModel)]="ingredient.name" name="ingredient-name">
+          </div>
+          <div class="col-xs-3">
+            <input class="form-control" type="number" [(ngModel)]="ingredient.quantity" name="ingredient-quantity">
+          </div>
+          <div class="col-xs-2">
+            <button class="btn btn-block btn-sm btn-default" (click)="addIngredient(ingredient)">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
         <label for="recipe-method">Modo de preparo</label>
         <textarea class="form-control" name="recipe-method" placeholder="" [(ngModel)]="recipe.method" ></textarea>
       </div>
