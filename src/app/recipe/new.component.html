@@ -6,20 +6,34 @@
         <label for="recipe-name">Nome da receita</label>
         <input [(ngModel)]="recipe.name" name="recipe-name" placeholder="Nome da receita" class="form-control input-lg" />
       </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <new-ingredient>
+          </new-ingredient>
+        </div>
+      </div>
       <div class="form-group">
-        <label>Ingredientes</label>
-        <ul>
-          <li *ngFor="let ingredient of recipe.ingredients">{{ingredient.quantity}} {{ingredient.name}}</li>
-        </ul>
+        <label>Ingredientes da Receita</label>
+        <div class="row">
+          <div class="col-xs-12">
+            <p *ngFor="let recipeIngredient of recipe.ingredients">&nbsp;{{recipeIngredient.quantity}} {{recipeIngredient.ingredient.name}} <span class="pull-right"><button (click)="removeIngredient($index)" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-trash"></i></button></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
         <div class="row">
           <div class="col-xs-7">
-            <input class="form-control" type="text" [(ngModel)]="ingredient.name" name="ingredient-name">
+            <select name="ingredient" class="form-control" [(ngModel)]="recipeIngredient.ingredient.name">
+              <option *ngFor="let ingredient of ingredients | async" [ngValue]="ingredient.name">
+                {{ ingredient.name }}
+              </option>
+            </select>
           </div>
           <div class="col-xs-3">
-            <input class="form-control" type="number" [(ngModel)]="ingredient.quantity" name="ingredient-quantity">
+            <input class="form-control" type="number" [(ngModel)]="recipeIngredient.quantity" name="ingredient-quantity">
           </div>
           <div class="col-xs-2">
-            <button class="btn btn-block btn-sm btn-default" (click)="addIngredient(ingredient)">+</button>
+            <button class="btn btn-block btn-sm btn-default" (click)="addIngredient(recipeIngredient)">+</button>
           </div>
         </div>
       </div>

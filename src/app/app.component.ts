@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFire, FirebaseListObservable, AuthProviders, AuthMethods } from 'angularfire2'
 
-// import { NewComponent } from './recipe/new.component'
-// import { ListComponent } from './recipe/list.component'
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,13 +12,9 @@ export class AppComponent {
   af: AngularFire;
   constructor(af: AngularFire) {
     this.af = af;
-    af.auth.login({
-      provider: AuthProviders.Anonymous,
-      method: AuthMethods.Anonymous,
-    });
   };
 
-  listAllRecipes() {
-    this.recipes = this.af.database.list('/recipes');
+  login() {
+    this.af.auth.login();
   };
 }
