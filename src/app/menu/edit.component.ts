@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFire, FirebaseObjectObservable } from 'angularfire2'
 import { Recipe } from '../recipe/new.component'
+import { Menu } from './menu'
 
 @Component({
   selector: 'edit-menu',
@@ -9,7 +10,7 @@ import { Recipe } from '../recipe/new.component'
 
 export class EditMenuComponent {
 
-  menu: FirebaseObjectObservable<Recipe>;
+  menu: FirebaseObjectObservable<Menu>;
   af: AngularFire;
 
   constructor(af: AngularFire) {
@@ -18,36 +19,4 @@ export class EditMenuComponent {
     var menu = new Menu
     this.menu.set(menu)
   };
-}
-
-export class Menu {
-
-  monday: DayOfTheWeek;
-  tuesday: DayOfTheWeek;
-  wednesday: DayOfTheWeek;
-  thursday: DayOfTheWeek;
-  friday: DayOfTheWeek;
-  saturday: DayOfTheWeek;
-  sunday: DayOfTheWeek;
-
-  constructor() {
-    this.monday = new DayOfTheWeek('monday');
-    this.tuesday = new DayOfTheWeek('tuesday');
-    this.wednesday = new DayOfTheWeek('wednesday');
-    this.thursday = new DayOfTheWeek('thursday');
-    this.friday = new DayOfTheWeek('friday');
-    this.saturday = new DayOfTheWeek('saturday');
-    this.sunday = new DayOfTheWeek('sunday');
-  }
-}
-
-export class DayOfTheWeek {
-
-  name:string;
-  recipes: Array<Recipe>;
-
-  constructor(name: string) {
-    this.name = name;
-    this.recipes = new Array<Recipe>();
-  }
 }

@@ -7,7 +7,7 @@ import { EditMenuComponent } from './edit.component';
 
 @NgModule({
   declarations: [
-    EditMenuComponent
+    EditMenuComponent,
   ],
   exports: [
     EditMenuComponent,
