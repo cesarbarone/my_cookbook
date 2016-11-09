@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFire, FirebaseObjectObservable } from 'angularfire2'
+import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2'
 import { Menu } from './menu'
 import { MenuService } from './menu.service'
 
@@ -12,8 +12,9 @@ import { MenuService } from './menu.service'
 export class EditMenuComponent {
 
   menu: FirebaseObjectObservable<Menu>;
+  recipes: FirebaseListObservable<any[]>;
 
-  constructor(menuService: MenuService) {
+  constructor(menuService: MenuService, af: AngularFire) {
     this.menu = menuService.get()
   };
 }

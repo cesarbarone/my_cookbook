@@ -15,4 +15,8 @@ export class MenuService {
   get(): FirebaseObjectObservable<Menu> {
     return this.af.database.object('/menu')
   }
+
+  addRecipe(dayOfTheWeek, key){
+    this.af.database.list("/menu/friday/recipes").push(key)
+  }
 }

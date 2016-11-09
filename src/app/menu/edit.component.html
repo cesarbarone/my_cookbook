@@ -1,5 +1,12 @@
-<div class="row">
-  <div class="col-md-12">
-    {{ (menu | async)?.friday.name }}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Menu da Semana</h3>
+  </div>
+  <div class="panel-body">
+    <h4><strong>{{ (menu | async)?.friday.name }}</strong></h4>
+    <!-- <h4><strong>{{ (menu | async)?.friday.recipes['-KW5LJFpqPCFOgmHju0n'] }}</strong></h4> -->
+    <ul>
+      <li *ngFor="let recipe of menu.friday.recipes | async"></li>
+    </ul>
   </div>
 </div>

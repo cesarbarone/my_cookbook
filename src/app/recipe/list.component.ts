@@ -13,10 +13,10 @@ export class ListComponent {
 
   recipes: FirebaseListObservable<any[]>;
   af: AngularFire;
-  menu: FirebaseObjectObservable<Menu>;
+  menuService: MenuService;
 
   constructor(af: AngularFire, menuService: MenuService) {
-    this.menu = menuService.get();
+    this.menuService = menuService;
     this.af = af;
     this.listAllRecipes();
   };
@@ -25,7 +25,7 @@ export class ListComponent {
     this.recipes = this.af.database.list('/recipes');
   };
 
-  setFriday() {
-    this.menu.update({friday: {name: 'sexta uhul'}})
+  addRecipe(recipe) {
+    this.menuService.addRecipe('friday', recipe.$key)
   }
 }
