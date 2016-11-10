@@ -3,10 +3,10 @@
     <h3 class="panel-title">Menu da Semana</h3>
   </div>
   <div class="panel-body">
-    <h4><strong>{{ (menu | async)?.friday.name }}</strong></h4>
+    <!-- <h4><strong>{{ (menu | async)?.friday.name }}</strong></h4> -->
     <!-- <h4><strong>{{ (menu | async)?.friday.recipes['-KW5LJFpqPCFOgmHju0n'] }}</strong></h4> -->
     <ul>
-      <li *ngFor="let recipe of menu.friday.recipes | async"></li>
+      <!-- <li *ngFor="let recipe of menu | async">{{ recipe }}</li> -->
     </ul>
   </div>
 </div>

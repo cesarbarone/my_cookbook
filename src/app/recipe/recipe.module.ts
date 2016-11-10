@@ -8,7 +8,6 @@ import { NewComponent } from './new.component';
 import { ListComponent } from './list.component';
 import { SearchComponent } from './search.component';
 
-
 @NgModule({
   declarations: [
     NewComponent,

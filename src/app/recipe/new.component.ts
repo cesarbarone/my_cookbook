@@ -17,7 +17,6 @@ export class NewComponent {
   af: AngularFire;
 
   constructor(af: AngularFire) {
-    this.af = af;
     this.recipe = new Recipe('', '', new Array<RecipeIngredient>());
     this.recipeIngredient = new RecipeIngredient(new Ingredient(''), 0);
     this.recipes = this.af.database.list('/recipes');

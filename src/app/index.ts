@@ -4,6 +4,7 @@ export * from './app.component';
 export * from './recipe/recipe.module';
 export * from './recipe/new.component';
 export * from './recipe/list.component';
+export * from './recipe/recipe.service';
 
 export * from './ingredient/ingredient.module';
 export * from './ingredient/new.component';
