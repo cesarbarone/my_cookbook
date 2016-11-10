@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Recipe } from '../recipe/new.component'
+import { Recipe } from '../recipe/recipe'
 
 @Injectable()
 export class DayOfTheWeek {

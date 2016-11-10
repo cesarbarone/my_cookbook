@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2'
 import { MenuService } from '../menu/menu.service'
 import { Menu } from '../menu/menu'
-import { Recipe } from './new.component'
+import { Recipe } from './recipe'
 import { RecipeService } from './recipe.service'
 
 @Component({

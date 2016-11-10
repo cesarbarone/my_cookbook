@@ -1,30 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
-import { AngularFire, FirebaseListObservable, AuthProviders, AuthMethods } from 'angularfire2'
-import { Ingredient } from '../ingredient/new.component'
+import { Ingredient } from '../ingredient/ingredient'
+import { Recipe, RecipeIngredient } from './recipe'
+import { RecipeService } from './recipe.service'
+import { IngredientService } from '../ingredient/ingredient.service'
 
 @Component({
   selector: 'new-recipe',
   templateUrl: './new.component.html',
+  providers: [RecipeService, IngredientService]
 })
 
-export class NewComponent {
+export class NewComponent implements OnInit {
 
-  recipes: FirebaseListObservable<Recipe[]>;
   recipe: Recipe;
   recipeIngredient: RecipeIngredient;
-  ingredients: FirebaseListObservable<Ingredient[]>;
-  af: AngularFire;
+  ingredients: Ingredient[];
 
-  constructor(af: AngularFire) {
+  constructor(private recipeService: RecipeService, private ingredientService: IngredientService) {
     this.recipe = new Recipe('', '', new Array<RecipeIngredient>());
     this.recipeIngredient = new RecipeIngredient(new Ingredient(''), 0);
-    this.recipes = this.af.database.list('/recipes');
-    this.ingredients = this.af.database.list('/ingredients')
   };
 
   createRecipe() {
-    this.recipes.push(this.recipe);
+    this.recipeService.create(this.recipe);
   }
 
   addIngredient(recipeIngredient) {
@@ -35,29 +34,10 @@ export class NewComponent {
     this.recipe.ingredients.splice(index, 1)
   }
 
-  formatIngredient(i) {
-    return i.name
-  }
-}
-
-export class Recipe {
-  name: string;
-  method: string;
-  ingredients: Array<RecipeIngredient>;
-
-  constructor(name: string, method: string, ingredients: Array<RecipeIngredient>) {
-    this.name = name;
-    this.method = method;
-    this.ingredients = ingredients;
-  }
-}
-
-export class RecipeIngredient {
-  ingredient: Ingredient;
-  quantity: number;
-
-  constructor(ingredient:Ingredient, quantity:number) {
-    this.ingredient = ingredient;
-    this.quantity = quantity;
+  ngOnInit() {
+    this.ingredientService.get()
+      .subscribe(
+        ingredients => this.ingredients = ingredients
+      );
   }
 }

@@ -26,7 +26,7 @@
         <div class="row">
           <div class="col-xs-7">
             <select name="ingredient" class="form-control" [(ngModel)]="recipeIngredient.ingredient.name">
-              <option *ngFor="let ingredient of ingredients | async" [ngValue]="ingredient.name">
+              <option *ngFor="let ingredient of ingredients" [ngValue]="ingredient.name">
                 {{ ingredient.name }}
               </option>
             </select>

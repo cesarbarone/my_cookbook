@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { AngularFire, FirebaseListObservable } from 'angularfire2'
+import { Ingredient } from './ingredient'
+
 
 @Component({
   selector: 'new-ingredient',
@@ -22,13 +24,5 @@ export class NewIngredientComponent {
   createIngredient() {
     this.ingredients.push(this.ingredient);
     this.ingredient.name = ''
-  }
-}
-
-export class Ingredient {
-  name: string;
-
-  constructor(name: string) {
-    this.name = name;
   }
 }
