@@ -5,10 +5,10 @@ import { Recipe } from '../recipe/recipe'
 export class DayOfTheWeek {
 
   name:string;
-  recipes: Array<Recipe>;
+  recipe: string;
 
   constructor(name: string) {
     this.name = name;
-    this.recipes = new Array<Recipe>();
+    // this.recipe = new Array<Recipe>();
   }
 }

@@ -8,14 +8,14 @@ import { RecipeService } from './recipe.service'
 @Component({
   selector: 'list-recipes',
   templateUrl: './list.component.html',
-  providers: [RecipeService]
+  providers: [RecipeService, MenuService]
 })
 
 export class ListComponent implements OnInit {
 
   recipes: Recipe[];
 
-  constructor(private recipeService: RecipeService) {
+  constructor(private recipeService: RecipeService, private menuService: MenuService) {
   };
 
   listAllRecipes() {
@@ -28,8 +28,6 @@ export class ListComponent implements OnInit {
       );
   }
   addRecipe(recipe) {
-    // console.log(recipe)
-    // var copy = Object.assign({}, recipe)
-    // this.menuService.addRecipe('friday', recipe)
+    this.menuService.addRecipe('friday', recipe.$key)
   }
 }

@@ -4,21 +4,11 @@ import { DayOfTheWeek } from './dayOfTheWeek'
 @Injectable()
 export class Menu {
 
-  monday: DayOfTheWeek;
-  tuesday: DayOfTheWeek;
-  wednesday: DayOfTheWeek;
-  thursday: DayOfTheWeek;
-  friday: DayOfTheWeek;
-  saturday: DayOfTheWeek;
-  sunday: DayOfTheWeek;
+  recipe: string;
+  dayOfTheWeek: string;
 
-  constructor() {
-    this.monday = new DayOfTheWeek('monday');
-    this.tuesday = new DayOfTheWeek('tuesday');
-    this.wednesday = new DayOfTheWeek('wednesday');
-    this.thursday = new DayOfTheWeek('thursday');
-    this.friday = new DayOfTheWeek('friday');
-    this.saturday = new DayOfTheWeek('saturday');
-    this.sunday = new DayOfTheWeek('sunday');
+  constructor(recipe: string, dayOfTheWeek: string) {
+    this.recipe = recipe;
+    this.dayOfTheWeek = dayOfTheWeek;
   }
 }

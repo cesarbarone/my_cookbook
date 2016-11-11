@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseObjectObservable } from 'angularfire2'
+import { AngularFire, FirebaseListObservable } from 'angularfire2'
 
 import { Menu } from './menu';
 
@@ -12,13 +12,12 @@ export class MenuService {
     this.af = af;
   }
 
-  get(): FirebaseObjectObservable<Menu> {
-    return this.af.database.object('/menu')
+  get(): FirebaseListObservable<Menu[]> {
+    return this.af.database.list('/menus')
   }
 
   addRecipe(dayOfTheWeek, recipe){
-    delete recipe['$key']
-    delete recipe['$exists']
-    this.af.database.list("/menu").push(recipe)
+    const menu = new Menu(recipe, dayOfTheWeek)
+    this.af.database.list("/menus").push(menu)
   }
 }
