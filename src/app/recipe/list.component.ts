@@ -15,8 +15,10 @@ import { DAYS_OF_THE_WEEK } from '../shared/constants/daysOfTheWeek'
 export class ListComponent implements OnInit {
 
   recipes: Recipe[];
+  daysOfTheWeek: Array<any>;
 
   constructor(private recipeService: RecipeService, private menuService: MenuService) {
+    this.daysOfTheWeek = DAYS_OF_THE_WEEK;
   };
 
   listAllRecipes() {
@@ -28,7 +30,7 @@ export class ListComponent implements OnInit {
         recipes => this.recipes = recipes
       );
   }
-  addRecipe(recipe) {
-    this.menuService.addRecipe('friday', recipe)
+  addRecipe(recipe, dayOfTheWeek) {
+    this.menuService.addRecipe(dayOfTheWeek, recipe)
   }
 }

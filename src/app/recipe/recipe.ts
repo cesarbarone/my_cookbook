@@ -13,11 +13,11 @@ export class Recipe {
 }
 
 export class RecipeIngredient {
-  ingredient: Ingredient;
+  name: string;
   quantity: number;
 
-  constructor(ingredient:Ingredient, quantity:number) {
-    this.ingredient = ingredient;
+  constructor(name:string, quantity:number) {
+    this.name = name;
     this.quantity = quantity;
   }
 }

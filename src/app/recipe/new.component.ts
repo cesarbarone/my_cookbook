@@ -19,7 +19,7 @@ export class NewComponent implements OnInit {
 
   constructor(private recipeService: RecipeService, private ingredientService: IngredientService) {
     this.recipe = new Recipe('', '', new Array<RecipeIngredient>());
-    this.recipeIngredient = new RecipeIngredient(new Ingredient(''), 0);
+    this.recipeIngredient = new RecipeIngredient('', 0);
   };
 
   createRecipe() {

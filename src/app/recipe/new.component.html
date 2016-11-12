@@ -18,14 +18,14 @@
         <label>Ingredientes da Receita</label>
         <div class="row">
           <div class="col-xs-12">
-            <p *ngFor="let recipeIngredient of recipe.ingredients">&nbsp;{{recipeIngredient.quantity}} {{recipeIngredient.ingredient.name}} <span class="pull-right"><button (click)="removeIngredient($index)" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-trash"></i></button></span></p>
+            <p *ngFor="let recipeIngredient of recipe.ingredients">&nbsp;{{recipeIngredient.quantity}} {{recipeIngredient.name}} <span class="pull-right"><button (click)="removeIngredient($index)" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-trash"></i></button></span></p>
           </div>
         </div>
       </div>
       <div class="form-group">
         <div class="row">
           <div class="col-xs-7">
-            <select name="ingredient" class="form-control" [(ngModel)]="recipeIngredient.ingredient.name">
+            <select name="ingredient" class="form-control" [(ngModel)]="recipeIngredient.name">
               <option *ngFor="let ingredient of ingredients" [ngValue]="ingredient.name">
                 {{ ingredient.name }}
               </option>
