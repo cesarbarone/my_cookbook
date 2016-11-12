@@ -19,6 +19,7 @@ export class EditMenuComponent implements OnInit {
   menus: Menu[];
   menu: {};
   daysOfTheWeek: Array<any>;
+  shoppingList: Array<any>;
 
   constructor(private menuService: MenuService, private recipeService: RecipeService) {
     this.daysOfTheWeek = DAYS_OF_THE_WEEK;
@@ -33,9 +34,11 @@ export class EditMenuComponent implements OnInit {
     };
   };
 
-  public fillRecipes(menus: Menu[]) {
-    this.menu = _.groupBy(menus, 'dayOfTheWeek')
-    console.log(this.menu);
+  fillRecipes() {
+    this.menu = _.groupBy(this.menus, 'dayOfTheWeek')
+  }
+
+  createShoppingList() {
   }
 
   removeRecipe(menu, recipe) {
@@ -47,7 +50,8 @@ export class EditMenuComponent implements OnInit {
       .subscribe(
         menus => {
           this.menus = menus
-          this.fillRecipes(menus)
+          this.fillRecipes()
+          this.createShoppingList()
         }
       );
   }

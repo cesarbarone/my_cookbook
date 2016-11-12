@@ -15,9 +15,11 @@ export class Recipe {
 export class RecipeIngredient {
   name: string;
   quantity: number;
+  measure: string;
 
-  constructor(name:string, quantity:number) {
+  constructor(name:string, quantity:number, measure: string) {
     this.name = name;
     this.quantity = quantity;
+    this.measure = measure;
   }
 }

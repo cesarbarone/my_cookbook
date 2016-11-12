@@ -3,7 +3,6 @@ import { FormsModule }   from '@angular/forms';
 import { AngularFire, FirebaseListObservable } from 'angularfire2'
 import { Ingredient } from './ingredient'
 import { IngredientService } from './ingredient.service'
-import { MEASURES } from '../shared/constants/measures'
 
 @Component({
   selector: 'new-ingredient',

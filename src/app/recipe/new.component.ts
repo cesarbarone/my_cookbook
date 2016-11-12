@@ -4,6 +4,9 @@ import { Ingredient } from '../ingredient/ingredient'
 import { Recipe, RecipeIngredient } from './recipe'
 import { RecipeService } from './recipe.service'
 import { IngredientService } from '../ingredient/ingredient.service'
+import { MEASURES } from '../shared/constants/measures'
+import * as jQuery from 'jquery';
+import { FroalaEditorDirective, FroalaViewDirective } from '../../../node_modules/angular2-froala-wysiwyg/lib/froala.directives';
 
 @Component({
   selector: 'new-recipe',
@@ -16,10 +19,12 @@ export class NewComponent implements OnInit {
   recipe: Recipe;
   recipeIngredient: RecipeIngredient;
   ingredients: Ingredient[];
+  measures: Array<any>;
 
   constructor(private recipeService: RecipeService, private ingredientService: IngredientService) {
     this.recipe = new Recipe('', '', new Array<RecipeIngredient>());
-    this.recipeIngredient = new RecipeIngredient('', 0);
+    this.recipeIngredient = new RecipeIngredient('', 0, '');
+    this.measures = MEASURES;
   };
 
   createRecipe() {
@@ -28,6 +33,7 @@ export class NewComponent implements OnInit {
 
   addIngredient(recipeIngredient) {
     this.recipe.ingredients.push(recipeIngredient)
+    this.recipeIngredient = new RecipeIngredient('', 0, '');
   }
 
   removeIngredient(index) {

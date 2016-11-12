@@ -12,3 +12,15 @@
     </div>
   </div>
 </div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Ingredientes</h3>
+  </div>
+  <div class="panel-body">
+    <div *ngFor="let menu of menus">
+      <div *ngFor="let ingredient of menu.recipe.ingredients">
+        {{ ingredient.name }}
+      </div>
+    </div>
+  </div>
+</div>
