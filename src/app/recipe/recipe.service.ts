@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2'
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2'
 import { Recipe } from './recipe'
 
 @Injectable()
@@ -13,6 +13,10 @@ export class RecipeService {
 
   get(): FirebaseListObservable<Recipe[]> {
     return this.af.database.list('/recipes')
+  }
+
+  getById(id: string): FirebaseObjectObservable<Recipe> {
+    return this.af.database.object("/recipes/" + id)
   }
 
   create(recipe) {

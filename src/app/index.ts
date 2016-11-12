@@ -14,5 +14,6 @@ export * from './ingredient/ingredient.service';
 
 export { MenuModule } from './menu/menu.module';
 export * from './menu/menu';
-export * from './menu/dayOfTheWeek';
 export * from './menu/edit.component';
+
+export * from './shared/constants/daysOfTheWeek';

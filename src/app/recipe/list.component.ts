@@ -4,6 +4,7 @@ import { MenuService } from '../menu/menu.service'
 import { Menu } from '../menu/menu'
 import { Recipe } from './recipe'
 import { RecipeService } from './recipe.service'
+import { DAYS_OF_THE_WEEK } from '../shared/constants/daysOfTheWeek'
 
 @Component({
   selector: 'list-recipes',
@@ -28,6 +29,6 @@ export class ListComponent implements OnInit {
       );
   }
   addRecipe(recipe) {
-    this.menuService.addRecipe('friday', recipe.$key)
+    this.menuService.addRecipe('friday', recipe)
   }
 }

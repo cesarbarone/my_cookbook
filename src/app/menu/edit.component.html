@@ -3,10 +3,12 @@
     <h3 class="panel-title">Menu da Semana</h3>
   </div>
   <div class="panel-body">
-    <!-- <h4><strong>{{ (menu | async)?.friday.name }}</strong></h4> -->
-    <!-- <h4><strong>{{ (menu | async)?.friday.recipes['-KW5LJFpqPCFOgmHju0n'] }}</strong></h4> -->
-    <ul>
-      <!-- <li *ngFor="let recipe of menu | async">{{ recipe }}</li> -->
-    </ul>
+    <div *ngFor="let dayOfTheWeek of daysOfTheWeek">
+      <h4><strong>{{ dayOfTheWeek.label }}</strong></h4>
+      <p *ngFor="let recipe of menu[dayOfTheWeek.key]">
+        {{ recipe.recipe.name }}
+        <button class="btn btn-sm btn-default pull-right" (click)="removeRecipe(menu[dayOfTheWeek.key], recipe)"><i class="glyphicon glyphicon-trash"></i></button>
+      </p>
+    </div>
   </div>
 </div>

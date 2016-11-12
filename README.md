@@ -4,6 +4,7 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 
 ## TODO
 
+* Gerar lista de compras
 * Cadastro de ingrediente
   * Listar tipo de medida (unidade, colher, xícara etc.)
   * Salvar ingrediente em tabela separada no BD

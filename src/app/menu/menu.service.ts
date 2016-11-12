@@ -17,7 +17,13 @@ export class MenuService {
   }
 
   addRecipe(dayOfTheWeek, recipe){
+    delete(recipe.$key)
+    delete(recipe.$exists)
     const menu = new Menu(recipe, dayOfTheWeek)
     this.af.database.list("/menus").push(menu)
+  }
+
+  remove(recipe){
+    this.af.database.list("/menus").remove(recipe.$key)
   }
 }

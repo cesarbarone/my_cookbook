@@ -1,3 +1,4 @@
+import * as _ from "underscore"
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from 'angularfire2';
