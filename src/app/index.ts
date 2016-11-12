@@ -17,3 +17,4 @@ export * from './menu/menu';
 export * from './menu/edit.component';
 
 export * from './shared/constants/daysOfTheWeek';
+export * from './shared/constants/measures';
