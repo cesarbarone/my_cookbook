@@ -14,6 +14,7 @@ export class Recipe {
 
 export class RecipeIngredient {
   name: string;
+  complement: string;
   quantity: number;
   measure: string;
 

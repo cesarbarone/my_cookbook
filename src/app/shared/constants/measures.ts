@@ -1,6 +1,23 @@
 export const MEASURES = [
-  {key: 'cup', label: 'Xícara'},
-  {key: 'teaspoon', label: 'Colher de chá'},
-  {key: 'unit', label: 'Unidade'},
-  {key: 'leaf', label: 'Folha'}
+  {label: 'Xícaras'},
+
+  {label: 'Colheres de chá'},
+  {label: 'Colheres de sopa'},
+  {label: 'Colheres de sobremesa'},
+  {label: 'Colheres de café'},
+
+  {label: 'Unidades'},
+  {label: 'Folhas'},
+  {label: 'Ramos'},
+  {label: 'Fatias'},
+
+  {label: 'Gramas'},
+  {label: 'Kg'},
+
+  {label: 'ml'},
+  {label: 'Litros'},
+
+  {label: 'Dentes'},
+
+  {label: 'Quanto bastar'}
 ]

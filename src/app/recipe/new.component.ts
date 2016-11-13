@@ -41,6 +41,7 @@ export class NewComponent implements OnInit {
   }
 
   removeIngredient(index) {
+    console.log(index);
     this.recipe.ingredients.splice(index, 1)
   }
 
