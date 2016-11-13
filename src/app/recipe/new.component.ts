@@ -4,14 +4,13 @@ import { Ingredient } from '../ingredient/ingredient'
 import { Recipe, RecipeIngredient } from './recipe'
 import { RecipeService } from './recipe.service'
 import { IngredientService } from '../ingredient/ingredient.service'
+import { MarkdownParser } from '../markdown/markdownParser'
 import { MEASURES } from '../shared/constants/measures'
-import * as jQuery from 'jquery';
-import { FroalaEditorDirective, FroalaViewDirective } from '../../../node_modules/angular2-froala-wysiwyg/lib/froala.directives';
 
 @Component({
   selector: 'new-recipe',
   templateUrl: './new.component.html',
-  providers: [RecipeService, IngredientService]
+  providers: [RecipeService, IngredientService, MarkdownParser]
 })
 
 export class NewComponent implements OnInit {
@@ -20,17 +19,22 @@ export class NewComponent implements OnInit {
   recipeIngredient: RecipeIngredient;
   ingredients: Ingredient[];
   measures: Array<any>;
+  methodPreview: string;
 
-  constructor(private recipeService: RecipeService, private ingredientService: IngredientService) {
+  constructor(private recipeService: RecipeService, private ingredientService: IngredientService, private markdownParser: MarkdownParser) {
     this.recipe = new Recipe('', '', new Array<RecipeIngredient>());
     this.recipeIngredient = new RecipeIngredient('', 0, '');
     this.measures = MEASURES;
+    this.methodPreview = ''
   };
 
   createRecipe() {
     this.recipeService.create(this.recipe);
   }
 
+  updatePreview() {
+    this.methodPreview = this.markdownParser.parse(this.recipe.method);
+  }
   addIngredient(recipeIngredient) {
     this.recipe.ingredients.push(recipeIngredient)
     this.recipeIngredient = new RecipeIngredient('', 0, '');

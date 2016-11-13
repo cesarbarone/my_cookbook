@@ -5,8 +5,8 @@
   <div class="panel-body">
     <div class="row" *ngFor="let recipe of recipes">
       <div class="col-xs-12">
-        <h4 style="margin-top: 0;">{{recipe.name}}</h4>
-        <p>{{recipe.method}}</p>
+        <h2 style="margin-top: 0;">{{recipe.name}}</h2>
+        <div innerHtml="{{markdownParser.parse(recipe.method)}}"></div>
         <div class="btn-group btn-group-justified" role="group" aria-label="Extra-small button group">
           <a type="button" class="btn btn-default" (click)="addRecipe(recipe, dayOfTheWeek.key)" *ngFor="let dayOfTheWeek of daysOfTheWeek">{{dayOfTheWeek.label}}</a>
         </div>

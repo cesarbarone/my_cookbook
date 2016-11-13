@@ -4,21 +4,24 @@ import { MenuService } from '../menu/menu.service'
 import { Menu } from '../menu/menu'
 import { Recipe } from './recipe'
 import { RecipeService } from './recipe.service'
+import { MarkdownParser } from '../markdown/markdownParser'
 import { DAYS_OF_THE_WEEK } from '../shared/constants/daysOfTheWeek'
 
 @Component({
   selector: 'list-recipes',
   templateUrl: './list.component.html',
-  providers: [RecipeService, MenuService]
+  providers: [RecipeService, MenuService, MarkdownParser]
 })
 
 export class ListComponent implements OnInit {
 
   recipes: Recipe[];
   daysOfTheWeek: Array<any>;
+  markDownParser: MarkdownParser;
 
-  constructor(private recipeService: RecipeService, private menuService: MenuService) {
+  constructor(private recipeService: RecipeService, private menuService: MenuService, private markdownParser: MarkdownParser) {
     this.daysOfTheWeek = DAYS_OF_THE_WEEK;
+    this.markdownParser = markdownParser;
   };
 
   listAllRecipes() {

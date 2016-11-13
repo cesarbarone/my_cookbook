@@ -10,6 +10,7 @@ export class AppComponent {
 
   recipes: FirebaseListObservable<any[]>;
   af: AngularFire;
+
   constructor(af: AngularFire) {
     this.af = af;
   };

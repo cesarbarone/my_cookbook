@@ -1,63 +1,76 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Nova Receita</h3>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Nova Receita</h3>
+      </div>
+      <div class="panel-body">
+        <form>
+          <div class="form-group">
+            <label for="recipe-name">Nome da receita</label>
+            <input [(ngModel)]="recipe.name" name="recipe-name" placeholder="Nome da receita" class="form-control input-lg" />
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <new-ingredient>
+              </new-ingredient>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Ingredientes da Receita</label>
+            <div class="row">
+              <div class="col-xs-12">
+                <p *ngFor="let recipeIngredient of recipe.ingredients">
+                  &nbsp;{{recipeIngredient.quantity}} - {{recipeIngredient.measure}} - {{recipeIngredient.name}}
+                  <span class="pull-right">
+                    <button (click)="removeIngredient($index)" class="btn btn btn-default">
+                      <i class="glyphicon glyphicon-trash"></i>
+                    </button>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-4">
+                <select name="ingredient" class="form-control" [(ngModel)]="recipeIngredient.name">
+                  <option *ngFor="let ingredient of ingredients" [ngValue]="ingredient.name">
+                    {{ ingredient.name }}
+                  </option>
+                </select>
+              </div>
+              <div class="col-xs-3">
+                <input class="form-control" type="number" [(ngModel)]="recipeIngredient.quantity" name="ingredient-quantity">
+              </div>
+              <div class="col-xs-3">
+                <select name="ingredient" class="form-control" [(ngModel)]="recipeIngredient.measure">
+                  <option *ngFor="let measure of measures" [ngValue]="measure.label">
+                    {{ measure.label }}
+                  </option>
+                </select>
+              </div>
+              <div class="col-xs-2">
+                <button class="btn btn-block btn-sm btn-default" (click)="addIngredient(recipeIngredient)">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="recipe-method">Modo de preparo</label>
+            <textarea class="form-control" (keyup)="updatePreview()" name="recipe-method" placeholder="" [(ngModel)]="recipe.method" rows="13"></textarea>
+          </div>
+          <button type="button" class="btn btn-info" (click)="createRecipe()">Criar Receita</button>
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="panel-body">
-    <form>
-      <div class="form-group">
-        <label for="recipe-name">Nome da receita</label>
-        <input [(ngModel)]="recipe.name" name="recipe-name" placeholder="Nome da receita" class="form-control input-lg" />
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Modo de preparo</h3>
       </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <new-ingredient>
-          </new-ingredient>
-        </div>
+      <div class="panel-body" innerHtml="{{methodPreview}}">
       </div>
-      <div class="form-group">
-        <label>Ingredientes da Receita</label>
-        <div class="row">
-          <div class="col-xs-12">
-            <p *ngFor="let recipeIngredient of recipe.ingredients">
-              &nbsp;{{recipeIngredient.quantity}} - {{recipeIngredient.measure}} - {{recipeIngredient.name}}
-              <span class="pull-right">
-                <button (click)="removeIngredient($index)" class="btn btn btn-default">
-                  <i class="glyphicon glyphicon-trash"></i>
-                </button>
-              </span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="row">
-          <div class="col-xs-4">
-            <select name="ingredient" class="form-control" [(ngModel)]="recipeIngredient.name">
-              <option *ngFor="let ingredient of ingredients" [ngValue]="ingredient.name">
-                {{ ingredient.name }}
-              </option>
-            </select>
-          </div>
-          <div class="col-xs-3">
-            <input class="form-control" type="number" [(ngModel)]="recipeIngredient.quantity" name="ingredient-quantity">
-          </div>
-          <div class="col-xs-3">
-            <select name="ingredient" class="form-control" [(ngModel)]="recipeIngredient.measure">
-              <option *ngFor="let measure of measures" [ngValue]="measure.label">
-                {{ measure.label }}
-              </option>
-            </select>
-          </div>
-          <div class="col-xs-2">
-            <button class="btn btn-block btn-sm btn-default" (click)="addIngredient(recipeIngredient)">+</button>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="recipe-method">Modo de preparo</label>
-        <textarea class="form-control" name="recipe-method" placeholder="" [(ngModel)]="recipe.method" ></textarea>
-      </div>
-      <button type="button" class="btn btn-info" (click)="createRecipe()">Criar Receita</button>
-    </form>
+    </div>
   </div>
 </div>
